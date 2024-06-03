@@ -28,7 +28,7 @@ public class Port {
         return null;
     }
 
-    public synchronized void loadContainersToPortFromShip(int amount, Ship ship) {
+    public  void loadContainersToPortFromShip(int amount, Ship ship) {
         while (containers + amount > capacity) {
             try {
                 if(System.currentTimeMillis()-ship.getStartTime()> ship.getTotalTimeInPortMillis()) return;
@@ -39,14 +39,14 @@ public class Port {
                 System.out.println("Error waiting for a ship " + ship.getShipName() + " to load containers at the port");
             }
         }
-        System.out.println(ship.getShipName()+"doing loadContainersToPortFromShip");
+        System.out.println(ship.getShipName()+" doing loadContainersToPortFromShip");
         containers += amount;
         ship.setContainers(ship.getContainers() - amount);
         System.out.println(amount + " containers loaded from " + ship.getShipName() + ". Total containers in port: " + containers + ". Number containers in ship:" + ship.getContainers());
         notifyAll();
     }
 
-    public synchronized void unloadContainersFromPortToShip(int amount, Ship ship) {
+    public void unloadContainersFromPortToShip(int amount, Ship ship) {
         while (containers - amount < 0) {
             try {
                 if(System.currentTimeMillis()-ship.getStartTime()> ship.getTotalTimeInPortMillis()) return;
@@ -57,7 +57,7 @@ public class Port {
                 System.out.println("Error waiting for a ship " + ship.getShipName() + " to load containers on it");
             }
         }
-        System.out.println(ship.getShipName()+"doing unloadContainersFromPortToShip");
+        System.out.println(ship.getShipName()+" doing unloadContainersFromPortToShip");
         containers -= amount;
         ship.setContainers(ship.getContainers() + amount);
         System.out.println(amount + " containers unloaded to " + ship.getShipName() + ". Total containers in port: " + containers + ". Number containers in ship:" + ship.getContainers());
