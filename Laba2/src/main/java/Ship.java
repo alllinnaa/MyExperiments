@@ -48,11 +48,6 @@ public class Ship extends Thread {
     public int getTotalTimeInPort() {
         return totalTimeInPort;
     }
-
-    public void setTotalTimeInPort(int totalTimeInPort) {
-        this.totalTimeInPort = totalTimeInPort;
-    }
-
     public long getTotalTimeInPortMillis() {
         return totalTimeInPortMillis;
     }
@@ -62,11 +57,8 @@ public class Ship extends Thread {
 
     @Override
     public void run() {
-        synchronized (Berth.class){
-            berth = port.getFreeBerth();
-            berth.dockShip(this);
-        }
-
+        berth = port.getFreeBerth();
+        berth.dockShip(this);
         startTime = System.currentTimeMillis();
         while (totalTimeInPort > 0) {
             int action = (int) (Math.random() * 2);
@@ -98,12 +90,9 @@ public class Ship extends Thread {
                 break;
             }
         }
-        System.out.println(name + " has left the port.");
         if (berth != null) {
-            synchronized (port) {
-                berth.undockShip();
-                port.notifyAll();
-            }
+            berth.undockShip();
         }
+        System.out.println(name + " has left the port.");
     }
 }
