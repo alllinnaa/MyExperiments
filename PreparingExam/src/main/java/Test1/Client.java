@@ -1,3 +1,5 @@
+package Test1;
+
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -37,7 +39,7 @@ public class Client extends Application {
         RadioButton googlePayRadioButton = new RadioButton("Google Pay");
         googlePayRadioButton.setToggleGroup(paymentGroup);
 
-        Label timeLabel = new Label("Select Order Time:");
+        Label timeLabel = new Label("Select Test1.Order Time:");
         DatePicker datePicker = new DatePicker();
         datePicker.setValue(LocalDate.now());
 
@@ -81,7 +83,7 @@ public class Client extends Application {
         timeSpinner.setValueFactory(timeValueFactory);
 
 
-        Button orderButton = new Button("Place Order");
+        Button orderButton = new Button("Place Test1.Order");
         orderButton.setOnAction(e -> {
             String coffee = coffeeComboBox.getValue();
             String dessert = dessertComboBox.getValue();
@@ -111,9 +113,9 @@ public class Client extends Application {
                 alert.showAndWait();
             } else {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Order Placed");
+                alert.setTitle("Test1.Order Placed");
                 alert.setHeaderText(null);
-                alert.setContentText(String.format("Order details:\nCoffee: %s\nDessert: %s\nPayment: %s\nDate: %s\nTime: %s",
+                alert.setContentText(String.format("Test1.Order details:\nCoffee: %s\nDessert: %s\nPayment: %s\nDate: %s\nTime: %s",
                         coffee, dessert, paymentMethod, date, time.format(timeFormatter)));
                 alert.showAndWait();
             }
@@ -133,7 +135,7 @@ public class Client extends Application {
 
         Scene scene = new Scene(root, 400, 300);
         stage.setScene(scene);
-        stage.setTitle("Order Client");
+        stage.setTitle("Test1.Order Test1.Client");
         stage.show();
     }
 

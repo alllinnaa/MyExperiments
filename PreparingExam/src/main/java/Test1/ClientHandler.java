@@ -1,3 +1,8 @@
+package Test1;
+
+import Test1.AppForRestaurant;
+import Test1.ClientDiscount;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -31,7 +36,7 @@ public class ClientHandler implements Runnable {
             app.addOrder(order);
 
             clientDiscount.addOrder(clientId);
-            out.println("Order received. Your price: " + price);
+            out.println("Test1.Order received. Your price: " + price);
         } catch (IOException e) {
             e.printStackTrace();
         }
