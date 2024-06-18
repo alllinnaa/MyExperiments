@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
-public class Client extends Application {
+public class InterfaceClient extends Application {
     @Override
     public void start(Stage stage) {
 
