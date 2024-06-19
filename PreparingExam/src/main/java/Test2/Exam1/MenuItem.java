@@ -1,6 +1,6 @@
 package Test2.Exam1;
 
-public class MenuItem {
+class MenuItem {
     private final String name;
     private final double price;
 
@@ -19,6 +19,6 @@ public class MenuItem {
 
     @Override
     public String toString() {
-        return name + " ($" + String.format("%.2f", price) + ")";
+        return name;
     }
 }
