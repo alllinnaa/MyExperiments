@@ -1,8 +1,8 @@
 package Test2.Exam1;
 
-class MenuItem {
-    private final String name;
-    private final double price;
+public class MenuItem {
+    private String name;
+    private double price;
 
     public MenuItem(String name, double price) {
         this.name = name;
@@ -19,6 +19,6 @@ class MenuItem {
 
     @Override
     public String toString() {
-        return name;
+        return name + " - $" + price;
     }
 }

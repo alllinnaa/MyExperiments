@@ -56,10 +56,42 @@ public class OrderManagement extends Application {
         coffeeComboBox.getItems().addAll(coffeeMenu);
         coffeeComboBox.setValue(coffeeMenu.get(0));
 
+        // Custom cell factory to show item names with prices
+        coffeeComboBox.setCellFactory(lv -> new ListCell<MenuItem>() {
+            @Override
+            protected void updateItem(MenuItem item, boolean empty) {
+                super.updateItem(item, empty);
+                setText(empty ? "" : item.toString());
+            }
+        });
+        coffeeComboBox.setButtonCell(new ListCell<MenuItem>() {
+            @Override
+            protected void updateItem(MenuItem item, boolean empty) {
+                super.updateItem(item, empty);
+                setText(empty ? "" : item.toString());
+            }
+        });
+
         Label dessertLabel = new Label("Select Dessert:");
         dessertComboBox = new ComboBox<>();
         dessertComboBox.getItems().addAll(dessertMenu);
         dessertComboBox.setValue(dessertMenu.get(0));
+
+        // Custom cell factory to show item names with prices
+        dessertComboBox.setCellFactory(lv -> new ListCell<MenuItem>() {
+            @Override
+            protected void updateItem(MenuItem item, boolean empty) {
+                super.updateItem(item, empty);
+                setText(empty ? "" : item.toString());
+            }
+        });
+        dessertComboBox.setButtonCell(new ListCell<MenuItem>() {
+            @Override
+            protected void updateItem(MenuItem item, boolean empty) {
+                super.updateItem(item, empty);
+                setText(empty ? "" : item.toString());
+            }
+        });
 
         Label paymentLabel = new Label("Select Payment Method:");
         paymentGroup = new ToggleGroup();
